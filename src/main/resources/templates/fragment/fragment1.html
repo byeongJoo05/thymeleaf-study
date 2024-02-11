@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html th:fragment="exam(var)"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{main-view.html}"
+>
+<div>
+  <p id="test2"> h2</p>
+</div>
+<script th:inline="javascript">
+  let data1 = [[${var}]];
+  let value2 = 'javascript에서 받은 데이터를 다시 뿌려준다. - ' + data1;
+
+  let a1 = document.getElementById("test2");
+
+  a1.innerText += value2;
+</script>

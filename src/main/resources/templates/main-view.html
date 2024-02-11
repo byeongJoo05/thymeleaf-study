@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>메인 뷰</title>
+</head>
+<body>
+
+<!--<ul class="nav nav-tabs">-->
+<!--    <li class="nav-item">-->
+<!--        <a class="nav-link active" data-toggle="tab" href="#exam1Tab">테스트1</a>-->
+<!--    </li>-->
+
+<!--    &lt;!&ndash; 수수료 탭 &ndash;&gt;-->
+<!--    <li class="nav-item" th:if="${condition != 0}">-->
+<!--        <a class="nav-link" data-toggle="tab" href="#exam2Tab">테스트2</a>-->
+<!--    </li>-->
+<!--</ul>-->
+
+<!-- 탭 컨텐츠 -->
+<div class="tab-content">
+    <!-- 탭 컨텐츠 -->
+    <div id="exam1Tab">
+        <!-- 내용 표시 -->
+        <div th:include="~{fragment/fragment :: exam(${model1})}"></div>
+    </div>
+
+    <!-- 탭 컨텐츠 -->
+    <div id="exam2Tab">
+        <!-- 내용 표시 -->
+        <div th:include="~{fragment/fragment1 :: exam(${model2})}"></div>
+    </div>
+</div>
+</body>
+</html>
