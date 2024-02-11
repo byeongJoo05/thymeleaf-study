@@ -19,7 +19,7 @@ public class examController {
 
         model.addAttribute("model1", "test1");
         model.addAttribute("model2", "test2");
-        model.addAttribute("condition", 1);
+        model.addAttribute("condition", 0);
         return "main-view";
     }
 }

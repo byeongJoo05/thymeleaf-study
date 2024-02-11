@@ -1,35 +1,45 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html xmlns:th="http://www.thymeleaf.org" lang="kr">
 <head>
     <meta charset="UTF-8">
     <title>메인 뷰</title>
 </head>
 <body>
 
-<!--<ul class="nav nav-tabs">-->
-<!--    <li class="nav-item">-->
-<!--        <a class="nav-link active" data-toggle="tab" href="#exam1Tab">테스트1</a>-->
-<!--    </li>-->
-
-<!--    &lt;!&ndash; 수수료 탭 &ndash;&gt;-->
-<!--    <li class="nav-item" th:if="${condition != 0}">-->
-<!--        <a class="nav-link" data-toggle="tab" href="#exam2Tab">테스트2</a>-->
-<!--    </li>-->
-<!--</ul>-->
+<div class="nav nav-tabs">
+    <span class="nav-item" id="test1"><a class="nav-link" href="#exam1Tab">테스트1</a></span>
+    <span class="nav-item" id="test2" th:if="${condition != 0}"><a class="nav-link" href="#exam2Tab">테스트2</a></span>
+</div>
 
 <!-- 탭 컨텐츠 -->
 <div class="tab-content">
     <!-- 탭 컨텐츠 -->
-    <div id="exam1Tab">
+    <div id="exam1Tab" style="display: block;">
         <!-- 내용 표시 -->
         <div th:include="~{fragment/fragment :: exam(${model1})}"></div>
     </div>
 
     <!-- 탭 컨텐츠 -->
-    <div id="exam2Tab">
+    <div id="exam2Tab" style="display: none;">
         <!-- 내용 표시 -->
         <div th:include="~{fragment/fragment1 :: exam(${model2})}"></div>
     </div>
 </div>
+
+<script>
+    const toggle = document.getElementsByClassName("nav-item");
+    const exam1Tab = document.getElementById("exam1Tab");
+    const exam2Tab = document.getElementById("exam2Tab");
+
+    toggle[0].addEventListener("click", function() {
+        exam1Tab.style.display = "block";
+        exam2Tab.style.display = "none";
+    });
+
+    toggle[1].addEventListener("click", function() {
+        exam1Tab.style.display = "none";
+        exam2Tab.style.display = "block";
+    });
+</script>
 </body>
 </html>
